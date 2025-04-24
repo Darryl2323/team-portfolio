@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #11147e, #000, #151631);
+    background-size: 300% 300%;
+    animation: gradient-animation 10s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #8fa9b2;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-family: 'Vollkorn', serif;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.navbar a.active,
+.navbar a:hover {
+    color: #11147e;
+}
+
+.nav-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 30px;
+}
+
+.hero-section {
+    position: relative;
+    margin-top: 0;
+    padding-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hero-section .image-left {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    max-width: 100%;
+    height: auto;
+    z-index: 3;
+    opacity: 0.8;
+    animation: pan-left 3s ease-in-out infinite alternate;
+}
+
+body.about-us .hero-section .image-left {
+    animation: pan-left 3s ease-in-out infinite alternate;
+}
+
+.hero-section .image-right {
+    position: absolute;
+    top: 0;
+    right: -40%;
+    max-width: 100%;
+    height: auto;
+    z-index: 1;
+    opacity: 0.8;
+    animation: pan-right 3s ease-in-out infinite alternate;
+}
+
+body.about-us .hero-section .image-right {
+    animation: pan-right 3s ease-in-out infinite alternate;
+}
+
+@keyframes pan-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-20px); }
+}
+
+@keyframes pan-right {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(20px); }
+}
+
+.hero-section .card {
+    position: relative;
+    background: #101010;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #101010;
+    max-width: 90%;
+    margin: 20px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    z-index: 2;
+    transform: translateY(-30px);
+    opacity: 0;
+    animation: fade-in 2s ease forwards;
+}
+
+body.about-us .hero-section .card {
+    animation: fade-in 2s ease forwards;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section .card h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    color: azure;
+    text-align: left;
+}
+
+.hero-section .card p {
+    font-size: 30px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: azure;
+    text-align: justify;
+}
